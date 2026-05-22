@@ -1,0 +1,19 @@
+{
+	"version": "v2",
+	"rates": [
+		{
+			"name": "Plan Anual",
+			"description": "365 días de firmas ilimitadas para una identidad digital",
+			"days": 365,
+			"price": 200,
+			"currency": "CUP"
+		},
+		{
+			"name": "Plan Bi-Anual",
+			"description": "730 días de firmas ilimitadas para una identidad digital",
+			"days": 730,
+			"price": 350,
+			"currency": "CUP"
+		}
+	]
+}
