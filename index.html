@@ -178,9 +178,12 @@
 </div>
 </div>
 
-<h1 class="font-display-xl text-display-xl text-white mb-4">
+<h1 class="font-display-xl text-display-xl text-white mb-2">
                 Firma Digital Segura y Profesional
             </h1>
+            <span id="hero-version-badge" class="inline-block px-3 py-1 bg-primary/20 border border-primary/30 rounded-full text-caption text-primary font-label-bold mb-4">
+                v2.1.0
+            </span>
 <p class="text-on-surface-variant mb-8 px-4">
                 Gestiona y firma tus documentos PDF con certificados P12 de forma rápida y sencilla.
             </p>
@@ -411,6 +414,9 @@
 
             const versionEl = document.getElementById('app-version');
             if (versionEl) versionEl.textContent = 'v' + QPDF_CONFIG.appVersion;
+
+            const heroBadge = document.getElementById('hero-version-badge');
+            if (heroBadge) heroBadge.textContent = 'v' + QPDF_CONFIG.appVersion;
         }
     </script>
 </body>
