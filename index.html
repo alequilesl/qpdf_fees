@@ -149,6 +149,7 @@
     }
   </style>
   <title>qPDF</title>
+<base target="_blank">
 </head>
 <body class="font-body-lg text-body-lg">
 
@@ -159,9 +160,9 @@
 <img class="max-w-[24px]" src="images/qpdf_icon.png" alt="qPDF Logo" />
 <span class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed">qPDF</span>
 </div>
-<button class="text-label-bold font-label-bold bg-primary text-on-primary px-4 py-2 rounded-lg active:scale-95 duration-200 transition-colors hover:bg-secondary">
+<a href="#" id="header-download-btn" class="text-label-bold font-label-bold bg-primary text-on-primary px-4 py-2 rounded-lg active:scale-95 duration-200 transition-colors hover:bg-secondary inline-block">
                 Descargar
-            </button>
+            </a>
 </div>
 </header>
 
@@ -185,9 +186,9 @@
             </p>
 
 <div class="flex flex-col w-full gap-stack-tight">
-<button class="w-full py-4 bg-primary text-on-primary font-label-bold text-label-bold rounded-xl shadow-[0_8px_16px_rgba(192,0,7,0.4)] active:scale-[0.98] transition-transform">
+<a href="#" id="hero-download-btn" class="w-full py-4 bg-primary text-on-primary font-label-bold text-label-bold rounded-xl shadow-[0_8px_16px_rgba(192,0,7,0.4)] active:scale-[0.98] transition-transform text-center block">
                     Descargar App
-                </button>
+                </a>
 <button id="saber-mas-btn" class="w-full py-4 bg-transparent border-2 border-primary/20 text-primary font-label-bold text-label-bold rounded-xl hover:bg-primary/5 transition-colors">
                     Saber más
                 </button>
@@ -280,6 +281,20 @@
 </div>
 </section>
 
+<!-- Link a Planes -->
+<section class="px-container-padding pb-section-gap">
+    <a href="planes.html" class="glass-card p-6 rounded-xl flex items-center gap-4 hover:bg-white/10 transition-colors group">
+        <div class="bg-primary/10 p-3 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+            <span class="material-symbols-outlined text-primary">card_membership</span>
+        </div>
+        <div class="flex-1">
+            <h3 class="font-label-bold text-label-bold text-white">Ver Planes de Suscripción</h3>
+            <p class="text-caption text-on-surface-variant">Descubre las opciones de suscripción disponibles.</p>
+        </div>
+        <span class="material-symbols-outlined text-primary">arrow_forward</span>
+    </a>
+</section>
+
 <!-- Visual Context / Preview Section -->
 <section class="px-container-padding mb-section-gap">
 <div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden border border-white/5 shadow-xl">
@@ -323,12 +338,14 @@
     <!-- Copyright -->
     <ul class="flex justify-center gap-4 text-caption text-on-surface-variant list-none m-0 p-0">
         <li>&copy; qPDF. All rights reserved.</li>
+        <li id="app-version" class="text-primary"></li>
     </ul>
 </div>
 </footer>
 
 </main>
 
+<script src="config.js"></script>
 <script>
         // Scroll suave al hacer clic en "Saber más"
         document.getElementById('saber-mas-btn').addEventListener('click', function(e) {
@@ -383,6 +400,17 @@
             nuevaSeccion.style.transform = 'translateY(20px)';
             nuevaSeccion.style.transition = 'all 0.6s cubic-bezier(0.22, 1, 0.36, 1)';
             observer.observe(nuevaSeccion);
+        }
+
+        // Aplicar URLs desde config.js
+        if (typeof QPDF_CONFIG !== 'undefined') {
+            const headerDownload = document.getElementById('header-download-btn');
+            const heroDownload = document.getElementById('hero-download-btn');
+            if (headerDownload) headerDownload.href = QPDF_CONFIG.downloadUrl;
+            if (heroDownload) heroDownload.href = QPDF_CONFIG.downloadUrl;
+
+            const versionEl = document.getElementById('app-version');
+            if (versionEl) versionEl.textContent = 'v' + QPDF_CONFIG.appVersion;
         }
     </script>
 </body>

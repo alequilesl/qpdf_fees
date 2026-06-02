@@ -134,6 +134,7 @@
     }
   </style>
   <title>qPDF | Error en el pago</title>
+<base target="_blank">
 </head>
 <body class="font-body-lg text-body-lg">
 
@@ -209,6 +210,7 @@
 
 </main>
 
+<script src="config.js"></script>
 <script>
     // Micro-interacciones para botones
     const volverBtn = document.getElementById('volver-inicio-btn');
@@ -226,8 +228,11 @@
         // Navegación: Volver al inicio
         volverBtn.addEventListener('click', function(e) {
             e.preventDefault();
-            alert("Redirigiendo a la página principal...");
-            // window.location.href = "/";
+            if (typeof QPDF_CONFIG !== 'undefined') {
+                window.location.href = QPDF_CONFIG.siteUrl;
+            } else {
+                window.location.href = '/';
+            }
         });
     }
 

@@ -6,7 +6,6 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<!-- Font Awesome para íconos sociales -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <script id="tailwind-config">
       tailwind.config = {
@@ -110,16 +109,14 @@
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        .success-icon-wrapper {
-            background: radial-gradient(circle at center, rgba(34, 197, 94, 0.2) 0%, transparent 70%);
+        .plan-card {
+            transition: all 0.3s ease;
         }
-        .btn-hover-effect {
-            transition: all 0.2s ease;
+        .plan-card:hover {
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(192, 0, 7, 0.3);
         }
-        .btn-hover-effect:active {
-            transform: scale(0.96);
-        }
-        /* Estilos para íconos sociales en footer */
         .social-icon {
             transition: all 0.3s ease;
             display: inline-flex;
@@ -139,63 +136,61 @@
             transform: translateY(-3px);
             border-color: #c00007;
         }
+        .price-tag {
+            background: linear-gradient(135deg, rgba(192, 0, 7, 0.2), rgba(187, 2, 9, 0.1));
+        }
     </style>
 <style>
     body {
       min-height: max(884px, 100dvh);
     }
   </style>
-  <title>qPDF | Pago exitoso</title>
+  <title>qPDF | Planes</title>
 <base target="_blank">
 </head>
 <body class="font-body-lg text-body-lg">
 
-<!-- Header (sin botón descargar, solo logo y nombre) -->
+<!-- Header -->
 <header class="fixed top-0 w-full z-50 bg-background-dark/80 backdrop-blur-md border-b border-outline/20 shadow-none">
 <div class="max-w-[448px] mx-auto flex items-center justify-between px-container-padding h-16">
 <div class="flex items-center gap-2">
 <img class="max-w-[24px]" src="images/qpdf_icon.png" alt="qPDF Logo" onerror="this.style.display='none'">
 <span class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed">qPDF</span>
 </div>
-<!-- Botón Descargar eliminado -->
-<div class="w-8"></div> <!-- Espaciador para mantener el centrado visual -->
+<div class="w-8"></div>
 </div>
 </header>
 
 <main class="max-w-[448px] mx-auto pt-16 min-h-screen flex flex-col">
 
-<!-- Pantalla de Pago Exitoso (Ícono verde, título, descripción y botón volver) -->
-<section class="flex-1 flex flex-col items-center justify-center px-container-padding py-12">
-    
-    <!-- Contenedor del ícono de éxito en VERDE -->
-    <div class="success-icon-wrapper w-32 h-32 rounded-full flex items-center justify-center mb-6">
-        <div class="w-24 h-24 rounded-full bg-green-500/20 flex items-center justify-center animate-pulse">
-            <span class="material-symbols-outlined text-green-500 text-6xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-        </div>
+<!-- Título de la sección -->
+<section class="px-container-padding pt-12 pb-4 flex flex-col items-center text-center">
+    <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+        <span class="material-symbols-outlined text-primary text-3xl">card_membership</span>
     </div>
-
-    <!-- Título -->
-    <h1 class="font-display-xl text-display-xl text-white text-center mb-3">
-        ¡Pago Exitoso!
+    <h1 class="font-display-xl text-display-xl text-white mb-3">
+        Planes de Suscripción
     </h1>
-
-    <!-- Descripción -->
-    <p class="text-on-surface-variant text-center mb-10 px-2">
-        Tu transacción se ha completado correctamente. Ahora disfrutas de todas las funciones de qPDF.
+    <p class="text-on-surface-variant mb-2 px-4">
+        Elige el plan que mejor se adapte a tus necesidades de firma digital.
     </p>
-
-    <!-- Botón Volver a Inicio -->
-    <a href="#" id="volver-inicio-btn" class="w-full py-4 bg-primary text-on-primary font-label-bold text-label-bold rounded-xl shadow-[0_8px_16px_rgba(192,0,7,0.4)] active:scale-[0.98] transition-all duration-200 text-center">
-        Volver al Inicio
-    </a>
-
 </section>
 
-<!-- Footer (mismo estilo que landing page con íconos sociales y copyright) -->
+<!-- Contenedor de planes (se llena desde rates_v2.json) -->
+<section id="planes-container" class="px-container-padding py-section-gap flex flex-col gap-element-gap">
+    <!-- Los planes se renderizan aquí vía JavaScript -->
+</section>
+
+<!-- Botón Volver al Inicio -->
+<section class="px-container-padding pb-section-gap">
+    <a href="#" id="volver-inicio-btn" class="w-full py-4 bg-transparent border-2 border-primary/20 text-primary font-label-bold text-label-bold rounded-xl hover:bg-primary/5 transition-colors text-center block">
+        Volver al Inicio
+    </a>
+</section>
+
+<!-- Footer -->
 <footer class="w-full py-section-gap bg-background-dark border-t border-outline/20">
 <div class="max-w-[448px] mx-auto flex flex-col items-center gap-element-gap px-container-padding text-center">
-
-    <!-- Íconos sociales -->
     <ul class="flex justify-center gap-4 list-none m-0 p-0">
         <li>
             <a href="https://www.linkedin.com/in/alequilesl" class="social-icon" target="_blank" rel="noopener noreferrer">
@@ -213,10 +208,8 @@
             </a>
         </li>
     </ul>
-
-    <!-- Copyright -->
     <ul class="flex justify-center gap-4 text-caption text-on-surface-variant list-none m-0 p-0">
-        <li>© qPDF. All rights reserved.</li>
+        <li>&copy; qPDF. All rights reserved.</li>
     </ul>
 </div>
 </footer>
@@ -225,45 +218,64 @@
 
 <script src="config.js"></script>
 <script>
-    // Micro-interacciones para botones
-    document.querySelectorAll('button, .btn-hover-effect, a[role="button"], #volver-inicio-btn').forEach(btn => {
-        if (btn) {
-            btn.addEventListener('mousedown', () => {
-                btn.style.transform = 'scale(0.96)';
+    // Cargar y renderizar planes desde rates_v2.json
+    fetch('rates_v2.json')
+        .then(response => response.json())
+        .then(data => {
+            const container = document.getElementById('planes-container');
+            data.rates.forEach((plan, index) => {
+                const card = document.createElement('div');
+                card.className = 'glass-card plan-card p-6 rounded-xl';
+                card.innerHTML = `
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="bg-primary/10 p-2 rounded-lg">
+                            <span class="material-symbols-outlined text-primary">${index === 0 ? 'event' : 'calendar_month'}</span>
+                        </div>
+                        <div>
+                            <h3 class="font-label-bold text-label-bold text-white">${plan.name}</h3>
+                            <p class="text-caption text-on-surface-variant">${plan.days} días de vigencia</p>
+                        </div>
+                    </div>
+                    <p class="text-on-surface-variant mb-4 text-sm leading-relaxed">${plan.description}</p>
+                    <div class="price-tag rounded-lg p-4 mb-4 flex items-baseline gap-1">
+                        <span class="text-3xl font-bold text-white">${plan.price}</span>
+                        <span class="text-lg font-label-bold text-primary">${plan.currency}</span>
+                    </div>
+                    <button class="w-full py-3 bg-primary text-on-primary font-label-bold text-label-bold rounded-xl shadow-[0_8px_16px_rgba(192,0,7,0.4)] active:scale-[0.98] transition-transform">
+                        Seleccionar Plan
+                    </button>
+                `;
+                container.appendChild(card);
             });
-            btn.addEventListener('mouseup', () => {
-                btn.style.transform = 'scale(1)';
-            });
-            btn.addEventListener('mouseleave', () => {
-                btn.style.transform = 'scale(1)';
-            });
-        }
-    });
-
-    // Navegación: Volver al inicio (simula redirección a landing page)
-    const volverBtn = document.getElementById('volver-inicio-btn');
-    if (volverBtn) {
-        volverBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            if (typeof QPDF_CONFIG !== 'undefined') {
-                window.location.href = QPDF_CONFIG.siteUrl;
-            } else {
-                window.location.href = '/';
-            }
+        })
+        .catch(error => {
+            console.error('Error cargando planes:', error);
+            document.getElementById('planes-container').innerHTML = `
+                <div class="glass-card p-6 rounded-xl text-center">
+                    <span class="material-symbols-outlined text-error text-4xl mb-2">error</span>
+                    <p class="text-on-surface-variant">No se pudieron cargar los planes. Intenta más tarde.</p>
+                </div>
+            `;
         });
+
+    // Botón volver al inicio usando config.js
+    const volverBtn = document.getElementById('volver-inicio-btn');
+    if (volverBtn && typeof QPDF_CONFIG !== 'undefined') {
+        volverBtn.href = QPDF_CONFIG.siteUrl;
     }
 
-    // Animación sutil de entrada para el ícono verde
-    const successIcon = document.querySelector('.success-icon-wrapper');
-    if (successIcon) {
-        successIcon.style.opacity = '0';
-        successIcon.style.transform = 'scale(0.8)';
-        setTimeout(() => {
-            successIcon.style.transition = 'all 0.5s cubic-bezier(0.34, 1.2, 0.64, 1)';
-            successIcon.style.opacity = '1';
-            successIcon.style.transform = 'scale(1)';
-        }, 100);
-    }
+    // Micro-interacciones
+    document.querySelectorAll('button').forEach(button => {
+        button.addEventListener('mousedown', () => {
+            button.style.transform = 'scale(0.96)';
+        });
+        button.addEventListener('mouseup', () => {
+            button.style.transform = 'scale(1)';
+        });
+        button.addEventListener('mouseleave', () => {
+            button.style.transform = 'scale(1)';
+        });
+    });
 </script>
 
 </body>
