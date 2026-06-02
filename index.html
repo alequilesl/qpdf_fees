@@ -1,65 +1,389 @@
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<title>qPDF</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-	</head>
-	<body class="landing">
-		<div id="page-wrapper">
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Font Awesome para los íconos sociales -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-container": "#e02a21",
+                    "on-error": "#ffffff",
+                    "primary-fixed-dim": "#ffb4a9",
+                    "on-tertiary-fixed": "#001b3d",
+                    "surface-container-high": "#ffe2dd",
+                    "on-surface": "#2a1614",
+                    "surface-container": "#ffe9e6",
+                    "surface-tint": "#c00007",
+                    "on-secondary": "#ffffff",
+                    "surface-container-low": "#fff0ee",
+                    "background-dark": "#221010",
+                    "on-background": "#2a1614",
+                    "on-tertiary-container": "#000513",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed-dim": "#a8c8ff",
+                    "on-surface-variant": "#5e3f3a",
+                    "on-primary-fixed-variant": "#930004",
+                    "tertiary": "#005db5",
+                    "on-secondary-container": "#fffbff",
+                    "on-tertiary": "#ffffff",
+                    "outline": "#936e69",
+                    "primary": "#c00007",
+                    "background-light": "#f8f6f6",
+                    "icon-gradient-start": "#ec1313",
+                    "secondary-fixed-dim": "#ffb4a9",
+                    "text-main": "#181111",
+                    "secondary-fixed": "#ffdad5",
+                    "on-primary-fixed": "#410001",
+                    "surface-variant": "#ffdad5",
+                    "surface-dim": "#f6d2cd",
+                    "surface-bright": "#fff8f7",
+                    "tertiary-container": "#0076e2",
+                    "on-primary-container": "#130000",
+                    "inverse-on-surface": "#ffedea",
+                    "error-container": "#ffdad6",
+                    "secondary": "#bb0209",
+                    "tertiary-fixed": "#d6e3ff",
+                    "surface-container-highest": "#ffdad5",
+                    "on-secondary-fixed-variant": "#930004",
+                    "error": "#ba1a1a",
+                    "inverse-surface": "#412b28",
+                    "primary-container": "#ec1313",
+                    "primary-fixed": "#ffdad5",
+                    "outline-variant": "#e9bcb6",
+                    "on-error-container": "#93000a",
+                    "on-secondary-fixed": "#410001",
+                    "inverse-primary": "#ffb4a9",
+                    "surface": "#fff8f7",
+                    "on-tertiary-fixed-variant": "#00468b",
+                    "icon-gradient-end": "#c40f0f",
+                    "background": "#fff8f7",
+                    "on-primary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "section-gap": "2rem",
+                    "element-gap": "1rem",
+                    "stack-tight": "0.5rem",
+                    "container-padding": "1rem"
+            },
+            "fontFamily": {
+                    "display-xl": ["Public Sans"],
+                    "caption": ["Public Sans"],
+                    "headline-md": ["Public Sans"],
+                    "label-bold": ["Public Sans"],
+                    "body-lg": ["Public Sans"]
+            },
+            "fontSize": {
+                    "display-xl": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700"}],
+                    "caption": ["0.75rem", {"lineHeight": "1.2", "fontWeight": "400"}],
+                    "headline-md": ["1.125rem", {"lineHeight": "1.25", "letterSpacing": "-0.015em", "fontWeight": "700"}],
+                    "label-bold": ["0.875rem", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-lg": ["1rem", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #221010;
+            color: #ffffff;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .hero-glow {
+            background: radial-gradient(circle at center, rgba(192, 0, 7, 0.15) 0%, transparent 70%);
+        }
+        .feature-card {
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(192, 0, 7, 0.3);
+        }
+        /* Estilos para los íconos sociales */
+        .social-icon {
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #c00007;
+            font-size: 1.25rem;
+        }
+        .social-icon:hover {
+            background: #c00007;
+            color: white;
+            transform: translateY(-3px);
+            border-color: #c00007;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  <title>qPDF</title>
+</head>
+<body class="font-body-lg text-body-lg">
 
-			<!-- Header -->
-				<header id="header">
-					<h1 id="logo"><a href="index.html">qPDF</a></h1>
-					<nav id="nav">
-						<ul>
-							<li><a href="https://drive.google.com/file/d/1zvU2w5whghCVCGtnHHSy_lZbCc19H0bH/view?usp=drive_link"  target="_blank" >Descargar</a></li>
-						</ul>
-					</nav>
-				</header>
+<!-- Top Navigation Anchor -->
+<header class="fixed top-0 w-full z-50 bg-background-dark/80 backdrop-blur-md border-b border-outline/20 shadow-none">
+<div class="max-w-[448px] mx-auto flex items-center justify-between px-container-padding h-16">
+<div class="flex items-center gap-2">
+<img class="max-w-[24px]" src="images/qpdf_icon.png" alt="qPDF Logo" />
+<span class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed">qPDF</span>
+</div>
+<button class="text-label-bold font-label-bold bg-primary text-on-primary px-4 py-2 rounded-lg active:scale-95 duration-200 transition-colors hover:bg-secondary">
+                Descargar
+            </button>
+</div>
+</header>
 
-			<!-- Banner -->
-				<section id="banner">
-					<div class="content">
-						<header>
-							<h2>qPDF</h2>
-							<p>Firma digital de documentos, fácil y sencillo.</p>
-							<ul class="actions" style="margin-top: 2rem;">
-								<li><a href="https://drive.google.com/file/d/1zvU2w5whghCVCGtnHHSy_lZbCc19H0bH/view?usp=drive_link" target="_blank" class="button">Descargar</a></li>
-							</ul>
-						</header>
-						<span class="image"><img src="images/qpdf_icon.png" alt="" /></span>
-					</div>
-					
-				</section>
-				
+<main class="max-w-[448px] mx-auto pt-16 min-h-screen flex flex-col">
 
-				<!-- Footer -->
-				<footer id="footer">
-					<ul class="icons">
-						<li><a href="https://www.linkedin.com/in/alequilesl" class="icon alt fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
-						<li><a href="https://github.com/alequilesl" class="icon alt fa-github" target="_blank"><span class="label">GitHub</span></a></li>
-						<li><a href="mailto://quiles.lopez.alejandro@gmail.com" class="icon alt fa-envelope" target="_blank"><span class="label">Email</span></a></li>
-					</ul>
-					<ul class="copyright">
-						<li>&copy; qPDF. All rights reserved.</li>
-					</ul>
-				</footer>
-		</div>
+<!-- Hero Section -->
+<section class="relative px-container-padding pt-12 pb- section-gap flex flex-col items-center text-center overflow-hidden">
+<div class="absolute inset-0 hero-glow -z-10"></div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/jquery.dropotron.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="assets/js/main.js"></script>
+<div class="mb-8 relative">
+<div class="w-32 h-32 rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(192,0,7,0.3)] border border-white/10">
+<img alt="qPDF Logo" class="w-full h-full object-cover" src="images/qpdf_icon.png"/>
+</div>
+</div>
 
-	</body>
+<h1 class="font-display-xl text-display-xl text-white mb-4">
+                Firma Digital Segura y Profesional
+            </h1>
+<p class="text-on-surface-variant mb-8 px-4">
+                Gestiona y firma tus documentos PDF con certificados P12 de forma rápida y sencilla.
+            </p>
+
+<div class="flex flex-col w-full gap-stack-tight">
+<button class="w-full py-4 bg-primary text-on-primary font-label-bold text-label-bold rounded-xl shadow-[0_8px_16px_rgba(192,0,7,0.4)] active:scale-[0.98] transition-transform">
+                    Descargar App
+                </button>
+<button id="saber-mas-btn" class="w-full py-4 bg-transparent border-2 border-primary/20 text-primary font-label-bold text-label-bold rounded-xl hover:bg-primary/5 transition-colors">
+                    Saber más
+                </button>
+</div>
+</section>
+
+<!-- Features Bento Grid -->
+<section class="px-container-padding py-section-gap">
+<div class="grid grid-cols-1 gap-element-gap">
+<div class="glass-card p-element-gap rounded-xl flex items-center gap-4">
+<div class="bg-primary/10 p-3 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">verified_user</span>
+</div>
+<div>
+<h3 class="font-label-bold text-label-bold text-white">Seguridad P12</h3>
+<p class="text-caption text-on-surface-variant">Protección avanzada con encriptación de grado industrial para tus certificados.</p>
+</div>
+</div>
+
+<div class="glass-card p-element-gap rounded-xl flex items-center gap-4">
+<div class="bg-primary/10 p-3 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">draw</span>
+</div>
+<div>
+<h3 class="font-label-bold text-label-bold text-white">Firma Instantánea</h3>
+<p class="text-caption text-on-surface-variant">Firma cualquier documento PDF en segundos desde la palma de tu mano.</p>
+</div>
+</div>
+
+<div class="glass-card p-element-gap rounded-xl flex items-center gap-4">
+<div class="bg-primary/10 p-3 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">description</span>
+</div>
+<div>
+<h3 class="font-label-bold text-label-bold text-white">Gestión de Documentos</h3>
+<p class="text-caption text-on-surface-variant">Organiza y visualiza tu historial de firmas en un solo lugar seguro.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- SECCIÓN: ¿QUÉ ES QPDF? (Saber más) -->
+<section id="que-es-qpdf" class="px-container-padding py-section-gap scroll-mt-20">
+<div class="glass-card p-6 rounded-xl border-l-4 border-primary">
+<div class="flex items-start gap-3 mb-4">
+<span class="material-symbols-outlined text-primary text-3xl">info</span>
+<h2 class="text-xl font-bold text-white">¿Qué es qPDF?</h2>
+</div>
+<p class="text-on-surface-variant mb-4 leading-relaxed">
+                qPDF es una solución integral para la gestión y firma digital de documentos PDF. 
+                Combina las funcionalidades de un visor ligero con una potente herramienta de firma 
+                digital embebida, diseñada para priorizar la seguridad, la privacidad y la experiencia de usuario.
+            </p>
+<p class="text-on-surface-variant mb-6 leading-relaxed">
+                Su principal diferencia radica en un proceso de firma <strong class="text-primary">100% offline</strong>. 
+                Toda la operación criptográfica se ejecuta localmente en su dispositivo, garantizando que en ningún momento 
+                su documento sensible o sus certificados digitales sean transmitidos a servidores externos. 
+                Esto no solo protege la confidencialidad de la información, sino que también permite operar en entornos 
+                restringidos o sin conectividad a Internet.
+            </p>
+
+<div class="bg-background-dark/50 rounded-lg p-4 mb-4">
+<p class="text-white font-label-bold mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">star</span>
+                Características principales:
+            </p>
+<ul class="space-y-3">
+<li class="flex items-start gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span>
+<span><strong class="text-white">Visualización Avanzada:</strong> Interfaz nativa y optimizada para la carga y visualización de documentos PDF.</span>
+</li>
+<li class="flex items-start gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span>
+<span><strong class="text-white">Gestión Simplificada de Certificados:</strong> Carga segura y única de su contenedor PKCS12 (.p12, .pfx). Las credenciales se mantienen en un entorno protegido.</span>
+</li>
+<li class="flex items-start gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span>
+<span><strong class="text-white">Personalización Total de la Firma:</strong> Configure el aspecto de su sello digital con logo, nombre completo, razón y locación, adaptándolo a su identidad corporativa o personal.</span>
+</li>
+<li class="flex items-start gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span>
+<span><strong class="text-white">Posicionamiento Intuitivo:</strong> Interface gráfica que le otorga libertad total para colocar la firma en cualquier coordenada del documento mediante un simple sistema de arrastrar y soltar.</span>
+</li>
+<li class="flex items-start gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-base mt-0.5">check_circle</span>
+<span><strong class="text-white">Seguridad y Privacidad por Diseño:</strong> Arquitectura offline-first que asegura la soberanía de sus datos. Usted conserva el control absoluto sobre sus documentos y claves privadas en todo momento. Los documentos y certificados nunca abandonan el dispositivo.</span>
+</li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- Visual Context / Preview Section -->
+<section class="px-container-padding mb-section-gap">
+<div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden border border-white/5 shadow-xl">
+<img class="w-full h-full object-cover opacity-60" alt="A sleek smartphone displaying a document signing interface with a bright red signature area" src="images/signing_phone.png"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background-dark via-transparent to-transparent"></div>
+<div class="absolute bottom-4 left-4 right-4">
+<div class="glass-card p-4 rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">potted_plant</span>
+<span class="text-caption text-white font-label-bold">Precisión Geométrica</span>
+</div>
+<span class="text-[10px] text-on-surface-variant uppercase tracking-widest">Enterprise Ready</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Footer actualizado -->
+<footer class="w-full py-section-gap bg-background-dark border-t border-outline/20">
+<div class="max-w-[448px] mx-auto flex flex-col items-center gap-element-gap px-container-padding text-center">
+
+    <!-- Íconos sociales -->
+    <ul class="flex justify-center gap-4 list-none m-0 p-0">
+        <li>
+            <a href="https://www.linkedin.com/in/alequilesl" class="social-icon" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+        <li>
+            <a href="https://github.com/alequilesl" class="social-icon" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-github"></i>
+            </a>
+        </li>
+        <li>
+            <a href="mailto:quiles.lopez.alejandro@gmail.com" class="social-icon" target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </li>
+    </ul>
+
+    <!-- Copyright -->
+    <ul class="flex justify-center gap-4 text-caption text-on-surface-variant list-none m-0 p-0">
+        <li>&copy; qPDF. All rights reserved.</li>
+    </ul>
+</div>
+</footer>
+
+</main>
+
+<script>
+        // Scroll suave al hacer clic en "Saber más"
+        document.getElementById('saber-mas-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            const seccion = document.getElementById('que-es-qpdf');
+            if (seccion) {
+                seccion.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+
+        // Micro-interacciones de botones
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('mousedown', () => {
+                button.style.transform = 'scale(0.96)';
+            });
+            button.addEventListener('mouseup', () => {
+                button.style.transform = 'scale(1)';
+            });
+            button.addEventListener('mouseleave', () => {
+                button.style.transform = 'scale(1)';
+            });
+        });
+
+        // Scroll reveal para tarjetas
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'all 0.6s cubic-bezier(0.22, 1, 0.36, 1)';
+            observer.observe(card);
+        });
+
+        // También aplicar efecto a la nueva sección
+        const nuevaSeccion = document.getElementById('que-es-qpdf');
+        if (nuevaSeccion) {
+            nuevaSeccion.style.opacity = '0';
+            nuevaSeccion.style.transform = 'translateY(20px)';
+            nuevaSeccion.style.transition = 'all 0.6s cubic-bezier(0.22, 1, 0.36, 1)';
+            observer.observe(nuevaSeccion);
+        }
+    </script>
+</body>
 </html>

@@ -1,65 +1,248 @@
-<!DOCTYPE HTML>
-<!--
-	Landed by HTML5 UP
-	html5up.net | @n33co
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>qPDF</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-	</head>
-	<body>
-		<div id="page-wrapper">
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Font Awesome para íconos sociales -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-container": "#e02a21",
+                    "on-error": "#ffffff",
+                    "primary-fixed-dim": "#ffb4a9",
+                    "on-tertiary-fixed": "#001b3d",
+                    "surface-container-high": "#ffe2dd",
+                    "on-surface": "#2a1614",
+                    "surface-container": "#ffe9e6",
+                    "surface-tint": "#c00007",
+                    "on-secondary": "#ffffff",
+                    "surface-container-low": "#fff0ee",
+                    "background-dark": "#221010",
+                    "on-background": "#2a1614",
+                    "on-tertiary-container": "#000513",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed-dim": "#a8c8ff",
+                    "on-surface-variant": "#5e3f3a",
+                    "on-primary-fixed-variant": "#930004",
+                    "tertiary": "#005db5",
+                    "on-secondary-container": "#fffbff",
+                    "outline": "#936e69",
+                    "primary": "#c00007",
+                    "background-light": "#f8f6f6",
+                    "icon-gradient-start": "#ec1313",
+                    "secondary-fixed-dim": "#ffb4a9",
+                    "text-main": "#181111",
+                    "secondary-fixed": "#ffdad5",
+                    "on-primary-fixed": "#410001",
+                    "surface-variant": "#ffdad5",
+                    "surface-dim": "#f6d2cd",
+                    "surface-bright": "#fff8f7",
+                    "tertiary-container": "#0076e2",
+                    "on-primary-container": "#130000",
+                    "inverse-on-surface": "#ffedea",
+                    "error-container": "#ffdad6",
+                    "secondary": "#bb0209",
+                    "tertiary-fixed": "#d6e3ff",
+                    "surface-container-highest": "#ffdad5",
+                    "on-secondary-fixed-variant": "#930004",
+                    "error": "#ba1a1a",
+                    "inverse-surface": "#412b28",
+                    "primary-container": "#ec1313",
+                    "primary-fixed": "#ffdad5",
+                    "outline-variant": "#e9bcb6",
+                    "on-error-container": "#93000a",
+                    "on-secondary-fixed": "#410001",
+                    "inverse-primary": "#ffb4a9",
+                    "surface": "#fff8f7",
+                    "on-tertiary-fixed-variant": "#00468b",
+                    "icon-gradient-end": "#c40f0f",
+                    "background": "#fff8f7",
+                    "on-primary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "section-gap": "2rem",
+                    "element-gap": "1rem",
+                    "stack-tight": "0.5rem",
+                    "container-padding": "1rem"
+            },
+            "fontFamily": {
+                    "display-xl": ["Public Sans"],
+                    "caption": ["Public Sans"],
+                    "headline-md": ["Public Sans"],
+                    "label-bold": ["Public Sans"],
+                    "body-lg": ["Public Sans"]
+            },
+            "fontSize": {
+                    "display-xl": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.015em", "fontWeight": "700"}],
+                    "caption": ["0.75rem", {"lineHeight": "1.2", "fontWeight": "400"}],
+                    "headline-md": ["1.125rem", {"lineHeight": "1.25", "letterSpacing": "-0.015em", "fontWeight": "700"}],
+                    "label-bold": ["0.875rem", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-lg": ["1rem", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #221010;
+            color: #ffffff;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .error-icon-wrapper {
+            background: radial-gradient(circle at center, rgba(186, 26, 26, 0.25) 0%, transparent 70%);
+        }
+        .social-icon {
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #c00007;
+            font-size: 1.25rem;
+        }
+        .social-icon:hover {
+            background: #c00007;
+            color: white;
+            transform: translateY(-3px);
+            border-color: #c00007;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  <title>qPDF | Error en el pago</title>
+</head>
+<body class="font-body-lg text-body-lg">
 
-			<!-- Header -->
-				<header id="header">
-					<h1 id="logo"><a href="index.html">qPDF</a></h1>
-					<nav id="nav">
-						<ul>
-							<li><a href="index.html">Inicio</a></li>
-						</ul>
-					</nav>
-				</header>
+<!-- Header (sin botón descargar, solo logo y nombre) -->
+<header class="fixed top-0 w-full z-50 bg-background-dark/80 backdrop-blur-md border-b border-outline/20 shadow-none">
+<div class="max-w-[448px] mx-auto flex items-center justify-between px-container-padding h-16">
+<div class="flex items-center gap-2">
+<img class="max-w-[24px]" src="images/qpdf_icon.png" alt="qPDF Logo" onerror="this.style.display='none'">
+<span class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed">qPDF</span>
+</div>
+<div class="w-8"></div>
+</div>
+</header>
 
-			<!-- Main -->
-				<div id="main" class="wrapper style1">
-					<div class="container">
-						<header class="major">
-							<h2 style="color: red;">Pago ERRONEO !!!</h2>
-							<p>Ocurrió un error en el pago</p>
-						</header>
-					</div>
-				</div>
+<main class="max-w-[448px] mx-auto pt-16 min-h-screen flex flex-col">
 
-			<!-- Footer -->
-			<footer id="footer">
-				<ul class="icons">
-					<li><a href="https://www.linkedin.com/in/alequilesl" class="icon alt fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
-					<li><a href="https://github.com/alequilesl" class="icon alt fa-github" target="_blank"><span class="label">GitHub</span></a></li>
-					<li><a href="mailto://quiles.lopez.alejandro@gmail.com" class="icon alt fa-envelope" target="_blank"><span class="label">Email</span></a></li>
-				</ul>
-				<ul class="copyright">
-					<li>&copy; qPDF. All rights reserved.</li>
-				</ul>
-			</footer>
+<!-- Pantalla de Pago Erróneo (Fallido) - Solo ícono rojo, título, descripción y botón volver -->
+<section class="flex-1 flex flex-col items-center justify-center px-container-padding py-12">
+    
+    <!-- Contenedor del ícono de error en ROJO -->
+    <div class="error-icon-wrapper w-32 h-32 rounded-full flex items-center justify-center mb-6">
+        <div class="w-24 h-24 rounded-full bg-red-600/20 flex items-center justify-center animate-pulse">
+            <span class="material-symbols-outlined text-red-600 text-6xl" style="font-variation-settings: 'FILL' 1;">cancel</span>
+        </div>
+    </div>
 
-		</div>
+    <!-- Título -->
+    <h1 class="font-display-xl text-display-xl text-white text-center mb-3">
+        Error en el Pago
+    </h1>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/jquery.dropotron.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="assets/js/main.js"></script>
+    <!-- Descripción -->
+    <p class="text-on-surface-variant text-center mb-10 px-2">
+        No pudimos procesar tu transacción. Verifica los datos de tu método de pago e intenta nuevamente.
+    </p>
 
-	</body>
+    <!-- Botón Volver al Inicio (único botón, mismo estilo que en éxito) -->
+    <a href="#" id="volver-inicio-btn" class="w-full py-4 bg-primary text-on-primary font-label-bold text-label-bold rounded-xl shadow-[0_8px_16px_rgba(192,0,7,0.4)] active:scale-[0.98] transition-all duration-200 text-center">
+        Volver al Inicio
+    </a>
+
+</section>
+
+<!-- Footer (mismo estilo que landing page con íconos sociales y copyright) -->
+<footer class="w-full py-section-gap bg-background-dark border-t border-outline/20">
+<div class="max-w-[448px] mx-auto flex flex-col items-center gap-element-gap px-container-padding text-center">
+
+    <!-- Íconos sociales -->
+    <ul class="flex justify-center gap-4 list-none m-0 p-0">
+        <li>
+            <a href="https://www.linkedin.com/in/alequilesl" class="social-icon" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </li>
+        <li>
+            <a href="https://github.com/alequilesl" class="social-icon" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-github"></i>
+            </a>
+        </li>
+        <li>
+            <a href="mailto:quiles.lopez.alejandro@gmail.com" class="social-icon" target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </li>
+    </ul>
+
+    <!-- Copyright -->
+    <ul class="flex justify-center gap-4 text-caption text-on-surface-variant list-none m-0 p-0">
+        <li>© qPDF. All rights reserved.</li>
+    </ul>
+</div>
+</footer>
+
+</main>
+
+<script>
+    // Micro-interacciones para botones
+    const volverBtn = document.getElementById('volver-inicio-btn');
+    if (volverBtn) {
+        volverBtn.addEventListener('mousedown', () => {
+            volverBtn.style.transform = 'scale(0.96)';
+        });
+        volverBtn.addEventListener('mouseup', () => {
+            volverBtn.style.transform = 'scale(1)';
+        });
+        volverBtn.addEventListener('mouseleave', () => {
+            volverBtn.style.transform = 'scale(1)';
+        });
+        
+        // Navegación: Volver al inicio
+        volverBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            alert("Redirigiendo a la página principal...");
+            // window.location.href = "/";
+        });
+    }
+
+    // Animación sutil de entrada para el ícono rojo
+    const errorIcon = document.querySelector('.error-icon-wrapper');
+    if (errorIcon) {
+        errorIcon.style.opacity = '0';
+        errorIcon.style.transform = 'scale(0.8)';
+        setTimeout(() => {
+            errorIcon.style.transition = 'all 0.5s cubic-bezier(0.34, 1.2, 0.64, 1)';
+            errorIcon.style.opacity = '1';
+            errorIcon.style.transform = 'scale(1)';
+        }, 100);
+    }
+</script>
+
+</body>
 </html>
