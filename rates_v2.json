@@ -2,13 +2,6 @@
 	"version": "v2",
 	"rates": [
 		{
-			"name": "Plan Prueba",
-			"description": "1 días de firmas ilimitadas para una identidad digital",
-			"days": 1,
-			"price": 1,
-			"currency": "CUP"
-		},
-		{
 			"name": "Plan Anual",
 			"description": "365 días de firmas ilimitadas para una identidad digital",
 			"days": 365,
