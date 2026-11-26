@@ -1,5 +1,5 @@
 const QPDF_CONFIG = {
-    siteUrl: "https://alequilesl.github.io/qpdf_fees/",
+    siteUrl: "https://qpdf.apex.cu/",
     downloadUrl: "https://www.apklis.cu/application/com.aql.qpdf",
     appVersion: "2.3.0"
 };
